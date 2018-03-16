@@ -138,18 +138,17 @@
        * Returns input amount in currency format.
        */
       _generateCurrency: function(amount, fixed, decimalSeparator, valueSeparator, currencyPrefix, currencySuffix) {
-        money = amount;
+        let money = amount;
         if(!money || isNaN(money)) {
           money = '0';
         }
-        moneyToFixed = Number(money).toFixed(fixed);
-        parts = moneyToFixed.split('.');
-        fnum = parts[0];
-        decimal = parts[1] ? decimalSeparator + parts[1] : decimalSeparator + '00';
+        let moneyToFixed = Number(money).toFixed(fixed);
+        let parts = moneyToFixed.split('.');
+        let fnum = parts[0];
+        let decimal = parts[1] ? decimalSeparator + parts[1] : decimalSeparator + '00';
         this.generateCurrency = currencyPrefix + ' ' + fnum.replace(/(\d)(?=(?:\d{3})+$)/g, '$1' + valueSeparator) + decimal + currencySuffix;
       }
     });
   </script>
 
 </dom-module>
-
